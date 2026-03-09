@@ -1,0 +1,62 @@
+.ui-container {
+    height: 690px;
+}
+
+.coin-container {
+    border: 1px solid black;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 18px;
+    background-color: gray;
+}
+
+.img {
+    height: 85px;
+    width: 85px;
+    border: 1px solid black;
+}
+
+.coin-info {
+    text-decoration: underline;
+    color: white;
+}
+
+button {
+    height: 42px;
+    width: 42px;
+    color: white;
+    font-weight: 900;
+    border: 1px solid white;
+}
+
+.add-btn {
+    background-color: green;
+    border-radius: 10px 0 0 0;
+}
+
+.subtract-btn {
+    background-color: red;
+    border-radius: 0 0 0 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#total {
+    border: 1px solid black;
+    width: 225px;
+    text-align: center;
+    margin: auto;
+    background-color: gray;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    border: 2px solid black;
+    border-top: none;
+    border-radius: 0 0 7px 7px;
+}
