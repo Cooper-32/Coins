@@ -44,96 +44,27 @@ let display = {
     oneC: document.getElementById("infoOneC"),
 };
 
-function add(multiplier) {
-    if (multiplier === 2) {
-        collection.twoEuro.pieces++;
-        collection.twoEuro.sum = multiplier * collection.twoEuro.pieces;
-        display.twoEur.innerHTML = `${collection.twoEuro.sum.toFixed(2)}€ | ${collection.twoEuro.pieces} Stk.`;
-    }
-    else if (multiplier === 1) {
-        collection.oneEuro.pieces++;
-        collection.oneEuro.sum++;
-        display.oneEur.innerHTML = `${collection.oneEuro.sum.toFixed(2)}€ | ${collection.oneEuro.pieces} Stk.`;
-    }
-    else if (multiplier === 0.5) {
-        collection.fiftyCent.pieces++;
-        collection.fiftyCent.sum = multiplier * collection.fiftyCent.pieces;
-        display.fiftyC.innerHTML = `${collection.fiftyCent.sum.toFixed(2)}€ | ${collection.fiftyCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.2) {
-        collection.twentyCent.pieces++;
-        collection.twentyCent.sum = multiplier * collection.twentyCent.pieces;
-        display.twentyC.innerHTML = `${collection.twentyCent.sum.toFixed(2)}€ | ${collection.twentyCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.1) {
-        collection.tenCent.pieces++;
-        collection.tenCent.sum = multiplier * collection.tenCent.pieces;
-        display.tenC.innerHTML = `${collection.tenCent.sum.toFixed(2)}€ | ${collection.tenCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.05) {
-        collection.fiveCent.pieces++;
-        collection.fiveCent.sum = multiplier * collection.fiveCent.pieces;
-        display.fiveC.innerHTML = `${collection.fiveCent.sum.toFixed(2)}€ | ${collection.fiveCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.02) {
-        collection.twoCent.pieces++;
-        collection.twoCent.sum = multiplier * collection.twoCent.pieces;
-        display.twoC.innerHTML = `${collection.twoCent.sum.toFixed(2)}€ | ${collection.twoCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.01) {
-        collection.oneCent.pieces++;
-        collection.oneCent.sum = multiplier * collection.oneCent.pieces;
-        display.oneC.innerHTML = `${collection.oneCent.sum.toFixed(2)}€ | ${collection.oneCent.pieces} Stk.`;
-    }
-    total();
+const coinMap = {
+    2: { key: "twoEuro", display: "twoEur" },
+    1: { key: "oneEuro", display: "oneEur"},
+    0.5: { key: "fiftyCent", display: "fiftyC"},
+    0.2: { key: "twentyCent", display: "twentyC"},
+    0.1: { key: "tenCent", display: "tenC"},
+    0.05: { key: "fiveCent", display: "fiveC"},
+    0.02: { key: "twoCent", display: "twoC"},
+    0.01: { key: "oneCent", display: "oneC"},
 }
 
-function subtract(multiplier) {
-    if (multiplier === 2) {
-        collection.twoEuro.pieces--;
-        collection.twoEuro.sum = multiplier * collection.twoEuro.pieces;
-        display.twoEur.innerHTML = `${collection.twoEuro.sum.toFixed(2)}€ | ${collection.twoEuro.pieces} Stk.`;
-    }
-    else if (multiplier === 1) {
-        collection.oneEuro.pieces--;
-        collection.oneEuro.sum--;
-        display.oneEur.innerHTML = `${collection.oneEuro.sum.toFixed(2)}€ | ${collection.oneEuro.pieces} Stk.`;
-    }
-    else if (multiplier === 0.5) {
-        collection.fiftyCent.pieces--;
-        collection.fiftyCent.sum = multiplier * collection.fiftyCent.pieces;
-        display.fiftyC.innerHTML = `${collection.fiftyCent.sum.toFixed(2)}€ | ${collection.fiftyCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.2) {
-        collection.twentyCent.pieces--;
-        collection.twentyCent.sum = multiplier * collection.twentyCent.pieces;
-        display.twentyC.innerHTML = `${collection.twentyCent.sum.toFixed(2)}€ | ${collection.twentyCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.1) {
-        collection.tenCent.pieces--;
-        collection.tenCent.sum = multiplier * collection.tenCent.pieces;
-        display.tenC.innerHTML = `${collection.tenCent.sum.toFixed(2)}€ | ${collection.tenCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.05) {
-        collection.fiveCent.pieces--;
-        collection.fiveCent.sum = multiplier * collection.fiveCent.pieces;
-        display.fiveC.innerHTML = `${collection.fiveCent.sum.toFixed(2)}€ | ${collection.fiveCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.02) {
-        collection.twoCent.pieces--;
-        collection.twoCent.sum = multiplier * collection.twoCent.pieces;
-        display.twoC.innerHTML = `${collection.twoCent.sum.toFixed(2)}€ | ${collection.twoCent.pieces} Stk.`;
-    }
-    else if (multiplier === 0.01) {
-        collection.oneCent.pieces--;
-        collection.oneCent.sum = multiplier * collection.oneCent.pieces;
-        display.oneC.innerHTML = `${collection.oneCent.sum.toFixed(2)}€ | ${collection.oneCent.pieces} Stk.`;
-    }
+function add(multiplier, delta) {
+    let coin = coinMap[multiplier];
+    collection[coin.key].pieces += delta;
+    collection[coin.key].sum = multiplier * collection[coin.key].pieces;
+    display[coin.display].innerHTML = `${collection[coin.key].sum.toFixed(2)}€ | ${collection[coin.key].pieces} Stk.`;
     total();
 }
 
 function total()  {
-      let result = collection.twoEuro.sum + collection.oneEuro.sum + collection.fiftyCent.sum + collection.twentyCent.sum + collection.tenCent.sum + collection.fiveCent.sum + collection.twoCent.sum + collection.oneCent.sum;
+    let result = collection.twoEuro.sum + collection.oneEuro.sum + collection.fiftyCent.sum + collection.twentyCent.sum + collection.tenCent.sum + collection.fiveCent.sum + collection.twoCent.sum + collection.oneCent.sum;
     let resultPcs = collection.twoEuro.pieces + collection.oneEuro.pieces + collection.fiftyCent.pieces + collection.twentyCent.pieces + collection.tenCent.pieces + collection.fiveCent.pieces + collection.twoCent.pieces + collection.oneCent.pieces;
     document.getElementById("total").innerHTML = `Total: ${result.toFixed(2)}€ | ${resultPcs} Stk.`;
     localStorage.setItem("collection", JSON.stringify(collection));
@@ -143,17 +74,13 @@ function total()  {
 
 function onload() {
     setTimeout(()=> {
+        let multipliers = [2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+        for (let i = 0; i <= 7; i++) {
+           display[coinMap[multipliers[i]].display].innerHTML = `${collection[coinMap[multipliers[i]].key].sum.toFixed(2)}€ | ${collection[coinMap[multipliers[i]].key].pieces} Stk.`;
+        }
         let totalSum = parseFloat(localStorage.getItem("totalSum")) || 0.00;
         let totalPcs = parseFloat(localStorage.getItem("totalPcs")) || 0;
         document.getElementById("total").innerHTML = `Total: ${totalSum.toFixed(2)}€ | ${totalPcs} Stk.`;
-        display.twoEur.innerHTML = `${collection.twoEuro.sum.toFixed(2)}€ | ${collection.twoEuro.pieces} Stk.`;
-        display.oneEur.innerHTML = `${collection.oneEuro.sum.toFixed(2)}€ | ${collection.oneEuro.pieces} Stk.`;
-        display.fiftyC.innerHTML = `${collection.fiftyCent.sum.toFixed(2)}€ | ${collection.fiftyCent.pieces} Stk.`;
-        display.twentyC.innerHTML = `${collection.twentyCent.sum.toFixed(2)}€ | ${collection.twentyCent.pieces} Stk.`;
-        display.tenC.innerHTML = `${collection.tenCent.sum.toFixed(2)}€ | ${collection.tenCent.pieces} Stk.`;
-        display.fiveC.innerHTML = `${collection.fiveCent.sum.toFixed(2)}€ | ${collection.fiveCent.pieces} Stk.`;
-        display.twoC.innerHTML = `${collection.twoCent.sum.toFixed(2)}€ | ${collection.twoCent.pieces} Stk.`;
-        display.oneC.innerHTML = `${collection.oneCent.sum.toFixed(2)}€ | ${collection.oneCent.pieces} Stk.`;
     }, 150);
 }
 
@@ -162,12 +89,8 @@ document.getElementById("total").addEventListener("dblclick", ()=> {
     localStorage.setItem("totalSum", 0);
     localStorage.setItem("totalPcs", 0);
     document.getElementById("total").innerHTML = `Total: 0.00€ | 0 Stk.`;
-    display.twoEur.innerHTML = `0.00€ | 0 Stk.`;
-    display.oneEur.innerHTML = `0.00€ | 0 Stk.`;
-    display.fiftyC.innerHTML = `0.00€ | 0 Stk.`;
-    display.twentyC.innerHTML = `0.00€ | 0 Stk.`;
-    display.tenC.innerHTML = `0.00€ | 0 Stk.`;
-    display.fiveC.innerHTML = `0.00€ | 0 Stk.`;
-    display.twoC.innerHTML = `0.00€ | 0 Stk.`;
-    display.oneC.innerHTML = `0.00€ | 0 Stk.`;
+    let multipliers = [2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+        for (let i = 0; i <= 7; i++) {
+            display[coinMap[multipliers[i]].display].innerHTML = `0.00€ | 0 Stk.`;
+        }
 });

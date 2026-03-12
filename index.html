@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
 <link rel="stylesheet" href="./style.css">
     </head>
     <body onload="onload()">
@@ -11,69 +9,68 @@
                 <img src="./img/2-euro.jpeg" class="img">
                 <span id="infoTwo" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(2)" class="add-btn">+</button>
-                <button onclick="subtract(2)" class="subtract-btn">-</button>
+                <button onclick="add(2, 1)" class="add-btn">+</button>
+                <button onclick="add(2, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/1euro.jpeg" class="img">
                 <span id="infoOne" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(1)" class="add-btn">+</button>
-                <button onclick="subtract(1)" class="subtract-btn">-</button>
+                <button onclick="add(1, 1)" class="add-btn">+</button>
+                <button onclick="add(1, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/50-cent.jpeg" class="img">
                 <span id="infoFifty" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.5)" class="add-btn">+</button>
-                <button onclick="subtract(0.5)" class="subtract-btn">-</button>
+                <button onclick="add(0.5, 1)" class="add-btn">+</button>
+                <button onclick="add(0.5, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/20-cent.jpeg" class="img">
                 <span id="infoTwenty" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.2)" class="add-btn">+</button>
-                <button onclick="subtract(0.2)" class="subtract-btn">-</button>
+                <button onclick="add(0.2, 1)" class="add-btn">+</button>
+                <button onclick="add(0.2, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/10-cent.jpeg" class="img">
                 <span id="infoTen" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.1)" class="add-btn">+</button>
-                <button onclick="subtract(0.1)" class="subtract-btn">-</button>
+                <button onclick="add(0.1, 1)" class="add-btn">+</button>
+                <button onclick="add(0.1, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/5-cent.jpeg" class="img">
                 <span id="infoFive" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.05)" class="add-btn">+</button>
-                <button onclick="subtract(0.05)" class="subtract-btn">-</button>
+                <button onclick="add(0.05, 1)" class="add-btn">+</button>
+                <button onclick="add(0.05, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/2-cent.jpeg" class="img">
                 <span id="infoTwoC" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.02)" class="add-btn">+</button>
-                <button onclick="subtract(0.02)" class="subtract-btn">-</button>
+                <button onclick="add(0.02, 1)" class="add-btn">+</button>
+                <button onclick="add(0.02, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
             <div class="coin-container">
                 <img src="./img/1-cent.jpeg" class="img">
                 <span id="infoOneC" class="coin-info">0€ | 0 Stk.</span>
                 <div class="button-container">
-                <button onclick="add(0.01)" class="add-btn">+</button>
-                <button onclick="subtract(0.01)" class="subtract-btn">-</button>
+                <button onclick="add(0.01, 1)" class="add-btn">+</button>
+                <button onclick="add(0.01, -1)" class="subtract-btn">-</button>
                 </div>
             </div>
         </div>
         <p id="total">Total: 0€ | 0 Stk.</p>
 <script src="./script.js"></script>
     </body>
-
 </html>
